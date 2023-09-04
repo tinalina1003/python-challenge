@@ -20,11 +20,13 @@ def total(amountList):
 
 def change(valueList):
 
-    for i in range(len(valueList)):
-        for j in valueList:
-            difference = valueList[j + 1] - valueList[j]
-    
-    print(difference)
+    sum = 0
+
+    for i in range(len(valueList) - 1):
+        difference = valueList[i + 1] - valueList[i]
+        sum += difference
+
+    return(sum/(len(valueList) - 1))
 
 
 # extract data from csv file
@@ -37,16 +39,17 @@ with open(pybankCSV) as csvfile:
     count = 0
 
     for row in csvreader:
-
+        
         date.append(row[0])
-        amount.append(float(row[1]))
+        amount.append(int(row[1]))
 
         # this counts the total amount of dates
         count += 1
 
 
 print(count)
-change(amount)
+print(change(amount))
+
 
 
 
