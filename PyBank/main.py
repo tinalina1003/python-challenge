@@ -5,29 +5,10 @@ import csv
 pybankCSV = os.path.join("Resources", "budget_data.csv")
 
 # create empty lists
-date = []
-amount = []
-
-# create a function that calculates total
-def total(amountList):
-
-    netTotal = 0
-
-    for budget in amountList:
-        netTotal += budget
-
-    return netTotal
-
-def change(valueList):
-
-    sum = 0
-
-    for i in range(len(valueList) - 1):
-        difference = valueList[i + 1] - valueList[i]
-        sum += difference
-
-    return(sum/(len(valueList) - 1))
-
+changeList = [] # create a list to store differences between each month
+monthCount = 0 # month counter
+total = 0
+sumOfChanges = 0
 
 # extract data from csv file
 with open(pybankCSV) as csvfile:
@@ -36,19 +17,31 @@ with open(pybankCSV) as csvfile:
     # Skips the header (there is a header in this case)
     csv_header = next(csvreader)
 
-    count = 0
+    previousRevenue = 0
 
     for row in csvreader:
         
-        date.append(row[0])
-        amount.append(int(row[1]))
+        currentRevenue = float(row[1])
+        total += currentRevenue # total revenue
+        monthCount += 1
+        changeRevenue = currentRevenue - previousRevenue
+        changeList.append(changeRevenue)
+        previousRevenue = currentRevenue
 
-        # this counts the total amount of dates
-        count += 1
+    # slice the first element of the average revenue list because we do not cannot assume we start from 0 prior to the first date
+    changeList = changeList[1:]
 
+    # calculate sum
+    for rev in changeList:
+        sumOfChanges += rev
 
-print(count)
-print(change(amount))
+    # calculate average
+    averageChange = sumOfChanges/len(changeList)
+
+print(total)
+print(averageChange)
+print(len(changeList))
+
 
 
 
