@@ -4,9 +4,9 @@ import csv
 # import csv data from Resources file
 pybankCSV = os.path.join("Resources", "budget_data.csv")
 
-######################
-# create empty lists #
-######################
+##################################
+# initialize lists and variables #
+##################################
 
 date = [] # create a list of months to zip later
 amount = [] # creat a list of profits/losses to zip later

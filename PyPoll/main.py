@@ -22,3 +22,5 @@ for candidate, count in candidate_counts.items():
 
 winner = candidate_counts.idxmax()
 print(f"\nThe winner is {winner}")
+
+print(df)
