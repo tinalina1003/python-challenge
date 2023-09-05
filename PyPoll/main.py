@@ -54,10 +54,7 @@ with open(pypollCSV) as csvfile:
 
     
     winnerIndex = voteList.index(max(voteList)) # retrieve the index with the most votes and output it with the candidateList
-    # Another method would be using the following line:   
-    # winner = max(finalResults, key = lambda x: x['Votes']) # key = lambda specifies a small anon function which takes an argument x and returns value that will be used
-    # as the comparison or sorting. It is a much faster way to retrieve the result but more confusing at my level. Like to keep this for future reference
-
+    
 
 ##########
 # OUTPUT #
