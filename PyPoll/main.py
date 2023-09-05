@@ -8,14 +8,12 @@ pypollCSV = os.path.join("Resources", "election_data.csv")
 # initialize lists and variables #
 ##################################
 
-candidate = set() # create a hashset
-totalVotes = 0
+#candidate = set() # create a hashset
+
 candidateVote = 0
-listOfCandidates = []
-ballot = {"Candidate": "", "Votes": ""}
-
-
-
+candidateSet= set() # create a hashset to pick out unique candidates
+ballot = {"Candidate": "", "Votes": 0}
+voteList = []
 
 ##############################
 # extract data from csv file #
@@ -28,18 +26,29 @@ with open(pypollCSV) as csvfile:
 
     csvHeader = next(csvreader)
 
+    # create a list of ballots
+    electionData = list(csvreader)
 
-    for row in csvreader:
+    # total votes is just the length of the election data
+    totalVotes = len(electionData)
 
-        candidate.add(row[2])
+    for row in range(totalVotes):
+        candidateSet.add(electionData[row][2]) # add unique elements to the hashset
+        candidateList = list(candidateSet) # convert set to list
+        
+        
+        
+    for i in range(len(candidateList)):
+        ballot ={"Candidates": candidateList[i],
+                 "Votes": 1
+        }
+        voteList.append(ballot)
+
+        print(ballot)
+        
+print(voteList)
     
-        # counts total votes
-        totalVotes += 1
 
-
-
-
-print(totalVotes)
 
 
 
