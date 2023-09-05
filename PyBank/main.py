@@ -77,7 +77,6 @@ for pairs in dateRevPair:
 # OUTPUT #
 ##########
 
-# print to terminal
 print("Financial Analysis")
 print("----------------------------")
 print(f"Total Months: {monthCount}")
@@ -86,7 +85,7 @@ print(f"Average Change: ${averageOfChanges:.2f}") # format with only 2 floating 
 print(f"Greatest Increase in Profits: {highestDate} (${greatestInc})")
 print(f"Greatest Decrease in Profits: {lowestDate} (${greatestDec})")
 
-# write to analysis.txt
+
 with open('analysis.txt', 'w') as analysisfile:
     analysisfile.write("Financial Analysis\n") # \n next line
     analysisfile.write("----------------------------\n")
@@ -95,8 +94,3 @@ with open('analysis.txt', 'w') as analysisfile:
     analysisfile.write(f"Average Change: ${averageOfChanges:.2f}\n")
     analysisfile.write(f"Greatest Increase in Profits: {highestDate} (${greatestInc})\n")
     analysisfile.write(f"Greatest Decrease in Profits: {lowestDate} (${greatestDec})\n")
-
-
-
-
-
