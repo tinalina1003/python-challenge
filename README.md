@@ -40,8 +40,6 @@ You will be given a set of poll data called election_data.csv. The dataset is co
     The total number of votes each candidate won
 
     The winner of the election based on popular vote
-
-Your analysis should align with the following results:
     
     Election Results
     -------------------------
