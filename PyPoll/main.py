@@ -59,6 +59,11 @@ with open(pypollCSV) as csvfile:
     # as the comparison or sorting. It is a much faster way to retrieve the result but more confusing at my level. Like to keep this for future reference
 
 
+##########
+# OUTPUT #
+##########
+
+# print to terminal
 print(f"Election Results")
 print(f"-----------------------------")
 print(f"Total Votes: {totalVotes}")
@@ -71,6 +76,7 @@ print(f"-----------------------------")
 print(f"Winner: {candidateList[winnerIndex]}")
 print(f"-----------------------------")
 
+# write to analysis.txt
 with open('analysis.txt', 'w') as analysisfile:
     analysisfile.write("Election Results\n") # \n next line
     analysisfile.write("----------------------------\n")
