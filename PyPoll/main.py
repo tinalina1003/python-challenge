@@ -8,7 +8,6 @@ pypollCSV = os.path.join("Resources", "election_data.csv")
 # initialize lists and variables #
 ##################################
 
-candidateVote = 0
 candidateSet= set() # create a hashset to pick out unique candidates
 finalResults = []
 voteList = [] # this is to store the final results
@@ -37,7 +36,7 @@ with open(pypollCSV) as csvfile:
         candidateList = list(candidateSet) # convert set to list
         allNames.append(electionData[row][2]) # append ALL names people voted for into a list to count later
         
-        
+    # Count votes and calculate percentages of total votes
     for name in range(len(candidateList)):
 
         voteList.append(allNames.count(candidateList[name]))
@@ -57,7 +56,7 @@ with open(pypollCSV) as csvfile:
     winnerIndex = voteList.index(max(voteList)) # retrieve the index with the most votes and output it with the candidateList
     # Another method would be using the following line:   
     # winner = max(finalResults, key = lambda x: x['Votes']) # key = lambda specifies a small anon function which takes an argument x and returns value that will be used
-    # as the comparison or sorting. It is a much faster way to retrieve the result but more confusing at my level
+    # as the comparison or sorting. It is a much faster way to retrieve the result but more confusing at my level. Like to keep this for future reference
 
 
 print(f"Election Results")
